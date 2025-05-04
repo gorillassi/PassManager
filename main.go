@@ -9,9 +9,11 @@ import (
 	"pwman/vault"
 )
 
-const vaultFile = "store.dat"
+const vaultFile = "store/store.dat"
 
 func main() {
+	os.MkdirAll("store", 0700)
+
 	if len(os.Args) < 2 {
 		fmt.Println("Usage: pwman <init|add|get|list>")
 		return
